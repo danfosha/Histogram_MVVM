@@ -1,0 +1,36 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Histogram_MVVM.Views"
+        xmlns:local="clr-namespace:Histogram_MVVM"
+        xmlns:ViewModels="clr-namespace:Histogram_MVVM.ViewModels"
+        x:Class="Histogram_MVVM.MainWindow"       
+        xmlns:vm="clr-namespace:Histogram_MVVM.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="700"
+        Width="900">
+
+    <Grid UseLayoutRounding="True">
+        <!-- Main Grid, image on left, histograms on right -->
+        <Grid.ColumnDefinitions>
+            <!-- Image grid on left-->
+            <ColumnDefinition Width="2*" />
+            <!-- Histogram grid on right-->
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0"
+              Margin="20 20 10 20">
+            <views:ImageDisplayView x:Name="ImageDisplayView"
+                                    DataContext="{Binding ImageDisplayVM}" />
+        </Grid>
+        <Grid Grid.Column="1"
+              Margin="4">
+            <views:HistoGroupView x:Name="HistoGroupView"
+                                  DataContext="{Binding HistoGroupVM}" />
+        </Grid>
+    </Grid>
+</Window>
+
+
