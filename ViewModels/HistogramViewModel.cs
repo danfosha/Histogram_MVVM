@@ -9,15 +9,12 @@ namespace Histogram_MVVM.ViewModels
         string _color = string.Empty;
         private int[] _hist = new int[256];
 
-        // Array _hist = null;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public HistogramViewModel(string clr) { _color = clr; }
 
         public void SetHistogram(int[] hist) { _hist = hist; RenderedHistogram = Convert(hist); }
-
-
+        
         PointCollection _renderedHistogram = null;
         public PointCollection RenderedHistogram
         { //get; set;
@@ -38,36 +35,17 @@ namespace Histogram_MVVM.ViewModels
             }
         }
 
-        // start paste
         #region Private Variables
-        //private PointCollection _histogramPoints = null;
+      
         #endregion
 
         #region Public Properties
-        //public PointCollection HistogramPoints
-        //{
-        //    get
-        //    {
-        //        return _histogramPoints;
-        //    }
-        //    set
-        //    {
-        //        if (this.HistogramPoints != value)
-        //        {
-        //            this.HistogramPoints = value;
-        //            if (this.PropertyChanged != null)
-        //            {
-        //                PropertyChanged(this, new PropertyChangedEventArgs("HistogramPoints"));
-        //            }
-        //        }
-        //    }
-        //}
+        
 
         #endregion
 
         #region Private Methods
-
-
+        
         // Converts Array to Point Collection
         private PointCollection Convert(int[] values)
         {
@@ -85,7 +63,6 @@ namespace Histogram_MVVM.ViewModels
             points.Add(new System.Windows.Point(values.Length - 1, max));
 
             return points;
-
         }
 
         #endregion

@@ -21,9 +21,7 @@ namespace Histogram_MVVM.ViewModels
         {
             _imageDisplayVM = new ImageDisplayViewModel(MyAction);
             _histoGroupVM = new HistoGroupViewModel();
-            //_histoGroupVM.ImageName = "C:\\Users\\dani9096\\Pictures\\peak.jpg";
-            //MyAction();
-
+            
         }
 
 

@@ -14,7 +14,7 @@ namespace Histogram_MVVM
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
-                return DependencyProperty.UnsetValue; // "C:\\Users\\dani9096\\Pictures\\peak.jpg"; 
+                return DependencyProperty.UnsetValue; 
             return value;
         }
            
