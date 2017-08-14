@@ -9,16 +9,21 @@ namespace Histogram_MVVM.ViewModels
     public partial class ImageDisplayViewModel : INotifyPropertyChanged
     {
 
-        public ImageDisplayViewModel() { }
-        // What does this do?
-        //Action<string> _cb;
+        private readonly Action action;
+
+        public ImageDisplayViewModel(Action action)
+        {
+
+            //_action = action;
+            this.action = action;
+        }
 
         // From AppViewModel.cs :
         //  _lhsVM = new LHSViewModel(OnSourceImagePathChange);
         //public ImageDisplayViewModel(Action<string> cb)
         //{
-           // _cb = cb;
-           // _cb?.Invoke("");
+        // _cb = cb;
+        // _cb?.Invoke("");
         //}
 
 
@@ -48,7 +53,8 @@ namespace Histogram_MVVM.ViewModels
                     _imageName = value;
                     if (this.PropertyChanged != null)
                     {
-                        RaisePropertyChanged("ImageName");
+                       RaisePropertyChanged("ImageName");
+                        
                     }
                 }
             }
@@ -105,9 +111,13 @@ namespace Histogram_MVVM.ViewModels
 
         private void LoadCommand()
         {
-            SetSourceImage();
+            // clears image name, triggering property change back in AppViewmModel
+            // change to data trigger?
+            action.Invoke();
+            //SetSourceImage();
         }
 
+     
     }
 }
 

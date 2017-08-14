@@ -10,7 +10,7 @@ namespace Histogram_MVVM.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
-
+        public string filepath = null;
         ImageDisplayViewModel _imageDisplayVM = null;
         HistoGroupViewModel _histoGroupVM = null;
 
@@ -19,25 +19,28 @@ namespace Histogram_MVVM.ViewModels
 
         public AppViewModel()
         {
-            _imageDisplayVM = new ImageDisplayViewModel();
+            _imageDisplayVM = new ImageDisplayViewModel(MyAction);
             _histoGroupVM = new HistoGroupViewModel();
             //_histoGroupVM.ImageName = "C:\\Users\\dani9096\\Pictures\\peak.jpg";
-            GetImagePath();
+            //MyAction();
 
         }
 
-        void GetImagePath() //= "C:\\Users\\dani9096\\Pictures\\peak.jpg"
+
+        private void MyAction()
         {
-            string filepath = _imageDisplayVM.SetSourceImage();
-            _histoGroupVM.CountPixelstoArrays(filepath);
+            if (_histoGroupVM != null)
+            {
+                filepath = _imageDisplayVM.SetSourceImage();
+                _histoGroupVM.CountPixelstoArrays(filepath);
+            }
         }
 
-
-    /// <summary>
-    /// Raises the property changed event.
-    /// </summary>
-    /// <param name="propertyName">Name of the property.</param>
-    private void RaisePropertyChanged(string propertyName)
+        /// <summary>
+        /// Raises the property changed event.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        private void RaisePropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = this.PropertyChanged;
             if (handler != null)
