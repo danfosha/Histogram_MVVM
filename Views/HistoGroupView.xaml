@@ -52,15 +52,15 @@
                      TickFrequency="5"
                      IsSnapToTickEnabled="True"
                      Name="lowerValue"
-                     Margin="0,0,0,50" />
+                     Margin="0,0,0,0" />
 
             <Slider Minimum="0"
                     Maximum="255"
-                    TickPlacement="None"
+                    TickPlacement="TopLeft"
                     TickFrequency="5"
                     IsSnapToTickEnabled="True"
                     Name="upperValue"
-                    Margin="0,0,0,10" />
+                    Margin="0,0,0,0" />
 
         </DockPanel>
         <TextBox Text="{Binding ElementName=lowerValue, Path=Value, UpdateSourceTrigger=PropertyChanged}"

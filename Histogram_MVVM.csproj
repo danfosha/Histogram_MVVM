@@ -98,8 +98,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Histo.cs" />
     <Compile Include="MyICommand.cs" />
-    <Compile Include="NullImageConverter.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\HistogramViewModel.cs" />
     <Compile Include="ViewModels\ImageDisplayViewModel.cs" />
@@ -163,8 +163,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controls\" />
     <Folder Include="Infra\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\f2VaVc4.jpg" />
