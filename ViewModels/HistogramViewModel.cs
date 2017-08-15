@@ -6,16 +6,21 @@ namespace Histogram_MVVM.ViewModels
 {
     public class HistogramViewModel : INotifyPropertyChanged
     {
-        string _color = string.Empty;
-        private int[] _hist = new int[256];
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public HistogramViewModel(string clr) { _color = clr; }
 
         public void SetHistogram(int[] hist) { _hist = hist; RenderedHistogram = Convert(hist); }
-        
+                
+        #region Private Variables
+        string _color = string.Empty;
+        private int[] _hist = new int[256];
         PointCollection _renderedHistogram = null;
+
+        #endregion
+
+        #region Public Properties
         public PointCollection RenderedHistogram
         { //get; set;
             get
@@ -35,17 +40,10 @@ namespace Histogram_MVVM.ViewModels
             }
         }
 
-        #region Private Variables
-      
-        #endregion
-
-        #region Public Properties
-        
-
         #endregion
 
         #region Private Methods
-        
+
         // Converts Array to Point Collection
         private PointCollection Convert(int[] values)
         {

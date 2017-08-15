@@ -9,15 +9,6 @@ namespace Histogram_MVVM.ViewModels
     public partial class ImageDisplayViewModel : INotifyPropertyChanged
     {
 
-        private readonly Action action;
-
-        public ImageDisplayViewModel(Action action)
-        {
-
-            //_action = action;
-            this.action = action;
-        }
-
         // From AppViewModel.cs :
         //  _lhsVM = new LHSViewModel(OnSourceImagePathChange);
         //public ImageDisplayViewModel(Action<string> cb)
@@ -34,12 +25,19 @@ namespace Histogram_MVVM.ViewModels
         #endregion
 
         #region Private variables
-
+        private readonly Action action;
         private String _imageName = null;
         #endregion
 
 
         #region Public Properties
+
+        public ImageDisplayViewModel(Action action)
+        {
+            //_action = action;
+            this.action = action;
+        }
+
         public String ImageName
         {
             get
@@ -53,15 +51,17 @@ namespace Histogram_MVVM.ViewModels
                     _imageName = value;
                     if (this.PropertyChanged != null)
                     {
-                       RaisePropertyChanged("ImageName");
-                        
+                        RaisePropertyChanged("ImageName");
+
                     }
                 }
             }
         }
         #endregion
 
-        public string SetSourceImage(string path= "")
+        #region Methods
+
+        public string SetSourceImage(string path = "")
         {
             string checkExtension = Path.GetExtension(path);
             if (string.IsNullOrEmpty(path) || (checkExtension != ".png" && checkExtension != ".jpeg" && checkExtension != ".jpg" && checkExtension != ".tif"))
@@ -72,7 +72,7 @@ namespace Histogram_MVVM.ViewModels
                 if (openFileDialog.ShowDialog() == true)
                 {
                     ImageName = openFileDialog.FileName;
-                   
+
                 }
             }
             else
@@ -88,7 +88,9 @@ namespace Histogram_MVVM.ViewModels
             return Path.GetFullPath(ImageName);
 
         }
-        
+
+        #endregion
+
         /// <summary>
         /// Raises the property changed event.
         /// </summary>
@@ -117,7 +119,7 @@ namespace Histogram_MVVM.ViewModels
             //SetSourceImage();
         }
 
-     
+
     }
 }
 

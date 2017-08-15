@@ -1,15 +1,8 @@
-﻿using System.ComponentModel;
-
-namespace Histogram_MVVM.ViewModels
+﻿namespace Histogram_MVVM.ViewModels
 {
-    public class AppViewModel : INotifyPropertyChanged
+    public class AppViewModel 
     {
-
-        #region INotifyPropertyChanged implementation
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
+                
         public string filepath = null;
         ImageDisplayViewModel _imageDisplayVM = null;
         HistoGroupViewModel _histoGroupVM = null;
@@ -23,8 +16,7 @@ namespace Histogram_MVVM.ViewModels
             _histoGroupVM = new HistoGroupViewModel();
             
         }
-
-
+        
         private void MyAction()
         {
             if (_histoGroupVM != null)
@@ -33,18 +25,6 @@ namespace Histogram_MVVM.ViewModels
                 _histoGroupVM.CountPixelstoArrays(filepath);
             }
         }
-
-        /// <summary>
-        /// Raises the property changed event.
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+                
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Histogram_MVVM.ViewModels
@@ -80,6 +81,19 @@ namespace Histogram_MVVM.ViewModels
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+
+        // Move me to HistoBoxDictionary?
+        public  class SliderValueChangedSample
+        {
+         
+
+            //private void ColorSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+            //{
+            //    Color color = Color.FromRgb((byte)slColorR.Value, (byte)slColorG.Value, (byte)slColorB.Value);
+            //    this.Background = new SolidColorBrush(color);
+            //}
         }
 
     }
